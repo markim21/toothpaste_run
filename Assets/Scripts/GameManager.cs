@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioSource theMusic;
-    public bool startPlaying;
-    public beat_scroller beatScroller; //this controls the beat scroller. we want to access it, so we create a ref point for it
+    public bool startPlaying = true;
+    //public beat_scroller beatScroller; //this controls the beat scroller. we want to access it, so we create a ref point for it
 
     public static GameManager instance; //instance of game manager *all notes* refer to.
 
@@ -18,14 +17,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(!startPlaying){
-            if(Input.anyKeyDown){
-                startPlaying = true;
-                beatScroller.hasStarted = true;
-                theMusic.Play();
-            }
-        }
 
     }
 
