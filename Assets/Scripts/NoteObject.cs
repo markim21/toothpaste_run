@@ -9,15 +9,13 @@ public class NoteObject : MonoBehaviour
     public bool canBePressed; 
     public KeyCode keyToPress;
 
-    public float spawnPos;  //spawn line
-    public float removePos; //remove line
+    public Vector2 spawnPos;  //spawn line
+    public Vector2 removePos; //remove line
     public float beatOfThisNote;
-
-    public SongManager song;
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,11 +27,11 @@ public class NoteObject : MonoBehaviour
                 GameManager.instance.NoteHit(); //tell game manager, hey we hit a note! 
             }
         }
-
+       
         transform.position = Vector2.Lerp(
             spawnPos,
             removePos,
-            (song.beatsShownInAdvance - (beatOfThisNote - song.songPositionInBeats)) / song.beatsShownInAdvance
+            (SongManager.song.beatsShownInAdvance - (beatOfThisNote - SongManager.song.songPositionInBeats)) / SongManager.song.beatsShownInAdvance
         );
 
     }
